@@ -18,6 +18,9 @@
 if(!defined('_SECURE_ACCESS')) {
 	die('Zugriff verweigert.');	
 }
+
+
+
 class mysql {
 	var $l_id;
 	var $q_id;

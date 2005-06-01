@@ -32,7 +32,7 @@ class kernel {
 
 	}
 	
-	function has_right($right) {
+	function hasRight($right) {
 		
 	}
 	
@@ -47,7 +47,7 @@ class kernel {
 	}
 	
 	function load_extensions($page_id) {
-		$this->database->query('SELECT * FROM '._PREF.'_extensions WHERE page_id = '. $page_id .' OR page_id=-1;');
+		$this->database->query('SELECT * FROM '._PREF.'extensions WHERE page_id = '. $page_id .' OR page_id=-1;');
 		$a_extensions = $this->database->get_rows();
 		foreach ($a_extensions as $extension) {
 				include ('extensions/'.$extension['class_name'].'/'.$extension['class_name'].'.php');
@@ -59,7 +59,7 @@ class kernel {
 	}
 	
 	function load_modules($page_id) {
-		$this->database->query('SELECT * FROM '._PREF.'_modules WHERE page_id = '. $page_id .' OR page_id=-1;');
+		$this->database->query('SELECT * FROM '._PREF.'modules WHERE page_id = '. $page_id .' OR page_id=-1;');
 		$a_modules = $this->database->get_rows();
 		$modules = array();
 		foreach ($a_modules as $module) {

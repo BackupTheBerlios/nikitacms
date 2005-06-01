@@ -28,7 +28,11 @@ require_once('includes/class.bbcode_define.php');
 
 $template = new template();
 // MySQL Verbindung starten
-$mysql = new mysql($aMainconfig['db_host'],$aMainconfig['db_database'],$aMainconfig['db_user'],$aMainconfig['db_password']);
+$mysql = new mysql(	$aMainConfig['db_host'],
+					$aMainConfig['db_database'],
+					$aMainConfig['db_user'],
+					$aMainConfig['db_password']);
+					
 // Kernel laden, mysql und template handler übergeben
 $kernel = new kernel($mysql, $template);
 

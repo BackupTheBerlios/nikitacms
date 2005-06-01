@@ -23,10 +23,12 @@
  
 $aMainConfig = array();
 
-$aMainconfig['db_host'] = 'localhost';
-$aMainconfig['db_database'] = 'nikita_cms';
-$aMainconfig['db_user'] = 'root';
+$aMainConfig['db_host'] = 'localhost';
+$aMainConfig['db_database'] = 'nikitacms';
+$aMainConfig['db_user'] = 'root';
 $aMainConfig['db_password'] = '';
-$aMainconfig['db_prefix'] = 'nikita_';
+$aMainConfig['db_prefix'] = 'nikita_';
 
+define('_PATH','/nikitaCMS');
+define('_PREF',$aMainConfig['db_prefix']);
 ?>

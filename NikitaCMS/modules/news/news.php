@@ -43,7 +43,7 @@ class news {
 	function news($kernel_handler) {
 		$this->hK = &$kernel_handler;
 		$this->vars = $this->hK->getParams(array('option', 'page', 'news_id'));
-		$this->hK->database->query('SELECT news_per_page FROM '. _PREF.'_mod_news_cfg WHERE 1');
+		$this->hK->database->query('SELECT news_per_page FROM '. _PREF.'mod_news_cfg WHERE 1');
 		$this->config = $this->hK->database->fetch_array();
 	}
 	
@@ -58,7 +58,7 @@ class news {
 		}
 		
 		$q = 	'SELECT * ' .
-				'FROM '._PREF .'_mod_news_content '. 
+				'FROM '._PREF .'mod_news_content '. 
 				$where . ' ' . 
 				$limit;
 				

@@ -24,7 +24,7 @@ class template {
 	var $a_extensions = array();
 	var $i = 0;
 	var $debug = '';
-	var $site_path = '../kijoto';
+	var $site_path = _PATH;
 	/* zeigt ein Modul auf der aktuellen Seite an */
 	function add_module($mod_content) {
 		$this->content[] = $mod_content;
@@ -87,7 +87,7 @@ class template {
 	}
 	
 	function runTemplate($template_name) {
-		include('../kijoto/templates/'. $template_name .'/index.php');
+		include('templates/'. $template_name .'/index.php');
 	}
 }
 

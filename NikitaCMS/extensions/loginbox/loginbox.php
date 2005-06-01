@@ -71,7 +71,7 @@ class loginbox {
 		if(isset($_REQUEST['login']) && $_REQUEST['login'] == '1') {
 			$this->h_kernel->database->query(
 					"SELECT * " . 
-					"FROM "._PREF."_users " .
+					"FROM "._PREF."users " .
 					"WHERE username = '". $_REQUEST['name']."' AND passwort='". md5($_REQUEST['passwort']) ."';");
 			$row = $this->h_kernel->database->fetch_array();
 			if(!empty($row)) {
@@ -86,7 +86,7 @@ class loginbox {
 		// cookie gucken, ob jemand eingeloggt ist
 		if(!empty($_COOKIE['username'])) {
 			// login daten des cookies testen
-			$this->h_kernel->database->query('SELECT * FROM '._PREF.'_users 
+			$this->h_kernel->database->query('SELECT * FROM '._PREF.'users 
 								WHERE username="'.$_COOKIE['username'].'" 
 								AND passwort="'.$_COOKIE['password'].'";');
 			

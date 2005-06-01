@@ -32,7 +32,7 @@ class content {
 	}
 	
 	function show($page_id) {
-		$this->h_kernel->database->query('SELECT * FROM '._PREF.'_mod_content WHERE page_id = '.$page_id.';');
+		$this->h_kernel->database->query('SELECT * FROM '._PREF.'mod_content WHERE page_id = '.$page_id.';');
 		$content = '';
 		while($row = $this->h_kernel->database->fetch_array()){
 			$content .= output_content::show($row);
