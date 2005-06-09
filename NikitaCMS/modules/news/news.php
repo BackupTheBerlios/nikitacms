@@ -70,6 +70,5 @@ class news {
 		} 
 		return $ret;
 	}	
-	
 }
 ?>

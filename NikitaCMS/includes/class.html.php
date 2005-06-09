@@ -49,7 +49,7 @@ class HTML {
 	
 	function jsPopup($text, $url = '') {
 		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-		return '<script language="JavaScript">alert("'. $text .'"); window.history.go(-1);</script>';	
+		return '<script language="JavaScript">alert("'. $text .'"); window.location.href=\'index.php\';</script>';	
 	}
 	
 	function adminLoginForm() {

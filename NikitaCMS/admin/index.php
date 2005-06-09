@@ -35,17 +35,11 @@ include('class.admin.corefunctions.php');
  */
  
 $mysql = new mysql($aMainconfig['db_host'],$aMainconfig['db_database'],$aMainconfig['db_user'],$aMainconfig['db_password']);
-$admin = new admin_core();
+$admin = new admin_core($mysql);
 
 include('../lang/german.php');
 
-if(isset($_GET['action']) && $_GET['action'] == 'admin_login') {
-	
-
-	
-} else {
 	$admin->check_login();
-}
  
 
 ?>

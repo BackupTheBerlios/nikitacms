@@ -21,6 +21,12 @@ if(!defined('_SECURE_ACCESS')) {
 }
 
 class admin_core {
+	var $mysql = '';
+	
+	function admin_core($mysql) {
+		$this->mysql = &$mysql;	
+		
+	}
 	function check_login() {
 		// wichtige funktionen :D
 		if(true) {
