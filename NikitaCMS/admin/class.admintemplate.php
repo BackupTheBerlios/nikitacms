@@ -20,6 +20,33 @@ if(!defined('_SECURE_ACCESS')) {
 	die('Zugriff verweigert.');	
 }
 
+class admintemplate {
+	var $content = '';
+	var $aMenu = array();
+	var $site_path = _PATH;
+	function addContent($content) {
+		$this->content .= $content;	
+	}
+
+	function addMenuEntry($entry, $link) {
+		$this->aMenu[$entry] = $link;	
+	}	
+	
+	function showAdminMenu() {
+		foreach($this->aMenu as $entry => $link) {
+			echo '<a class="menu_entry" href="'. $link .'">' . $entry . '</a>' . "\n";
+		}	
+		
+	}
+	
+	function showContent() {
+		echo $this->content; 
+	}
+	function runTemplate($template_name) {
+		include('templates/'. $template_name .'/index.php');		
+	}	
+	
+}
  
 
 ?>

@@ -35,11 +35,13 @@ include('class.admin.corefunctions.php');
  */
  
 $mysql = new mysql($aMainconfig['db_host'],$aMainconfig['db_database'],$aMainconfig['db_user'],$aMainconfig['db_password']);
-$admin = new admin_core($mysql);
+$template = new admintemplate;
+$admin = new admin_core($mysql, $template);
+
 
 include('../lang/german.php');
 
-	$admin->check_login();
- 
+$admin->check_login();
+$admin->renderPage();
 
 ?>

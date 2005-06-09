@@ -53,7 +53,7 @@ class HTML {
 	}
 	
 	function adminLoginForm() {
-		return HTML::div('admin_login',_ADMIN_LOGIN . '<br />' . HTML::startForm('admin_login') . HTML::textField('Nick') . HTML::pwField('Passwort') . HTML::submitButton('Login') . HTML::endForm()); 	
+		return HTML::div('admin_login_wrapper',HTML::div('admin_login_title',_ADMIN_LOGIN) . HTML::div('admin_login',HTML::startForm('admin_login') . HTML::textField('Nick') . HTML::pwField('Passwort') . HTML::submitButton('Login') . HTML::endForm())); 	
 	}
 	
 } 

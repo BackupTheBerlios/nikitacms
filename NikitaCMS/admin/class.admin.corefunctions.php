@@ -22,19 +22,21 @@ if(!defined('_SECURE_ACCESS')) {
 
 class admin_core {
 	var $mysql = '';
-	
-	function admin_core($mysql) {
+	var $template = '';
+	function admin_core($mysql, $template) {
 		$this->mysql = &$mysql;	
-		
+		$this->template = &$template;
 	}
 	function check_login() {
 		// wichtige funktionen :D
 		if(true) {
-			echo HTML::adminLoginForm();	
+			$this->template->addContent(HTML::adminLoginForm());	
 		} else {
 			
 		}	
 	}	
-	
+	function renderPage() {
+		$this->template->runTemplate('default');
+	}
 }
 ?>

@@ -1,0 +1,32 @@
+* {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+
+.menu {
+
+
+}
+
+.content {
+	border: 1px solid #cccccc;
+	background-color: #efefef;
+}
+
+.admin_login {
+	text-align: left;
+	padding: 5px;
+	border: 2px solid #3F8DC0;
+}
+.admin_login_wrapper {
+	margin: 20% 30%;
+	padding-right: 10px;
+}
+.admin_login_title {
+	text-align: center;
+	background-color: #3F8DC0;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding: 3px;
+}
