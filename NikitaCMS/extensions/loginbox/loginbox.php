@@ -128,5 +128,39 @@ class loginbox {
 		return $content;
 	
 	}
+	function validCookieUser() {
+	if(!empty($_COOKIE['adm_username'])) {
+			// login daten des cookies testen
+			$this->h_kernel->database->query('SELECT * FROM '._PREF.'users 
+								WHERE username="'.$_COOKIE['adm_username'].'" 
+								AND passwort="'.$_COOKIE['adm_password'].'";');
+			
+			$row = $this->h_kernel->database->fetch_array();
+			if(empty($row)) { // cookie daten liefern kein ergebn. bei mysql ?
+				//error 
+				setcookie('username','');    // cookie daten löschen ...
+				setcookie('password','');
+				return -1;
+		} else {
+				return 1;
+			}
+		} else {
+			return -1;
+		}	
+	}
+	function validUser($nick, $password) {
+		$this->h_kernel->database->query(
+				"SELECT * " . 
+				"FROM "._PREF."users " .
+				"WHERE username = '". $nick."' AND passwort='". $password ."';");
+		$row = $this->h_kernel->database->fetch_array();
+		if(!empty($row)) {
+			setcookie('adm_username',$row['username'],_COOKIE_EXPIRE);
+			setcookie('adm_password',$row['passwort'],_COOKIE_EXPIRE);
+			return 1;
+		} else {
+			return -1;
+		}
+	}
 }
 ?>

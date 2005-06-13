@@ -22,11 +22,11 @@ class kernel {
 	var $sessionHandler;
 	var $a_modules;
 	var $bbcode;
-	
-	function kernel($db, $template) {
-		$this->database = & $db;
-		$this->template = & $template;
-		
+	var $path;
+	function kernel($db, $template, $path = '') {
+		$this->database = $db;
+		$this->template = $template;
+		$this->path = $path;
 		// we have to declare bbcode from now on
 		$this->bbcode = new bbcode_define ();
 
@@ -35,7 +35,9 @@ class kernel {
 	function hasRight($right) {
 		
 	}
-	
+	function loadExtension($name) {
+		
+	}
 	function getParams($a_param_names) {
 		$a_ret = array();
 		foreach($_REQUEST as $k => $v) {
@@ -48,11 +50,12 @@ class kernel {
 	
 	function load_extensions($page_id) {
 		$this->database->query('SELECT * FROM '._PREF.'extensions WHERE page_id = '. $page_id .' OR page_id=-1;');
+		
 		$a_extensions = $this->database->get_rows();
 		foreach ($a_extensions as $extension) {
-				include ('extensions/'.$extension['class_name'].'/'.$extension['class_name'].'.php');
+				include ($this->path.'/extensions/'.$extension['class_name'].'/'.$extension['class_name'].'.php');
 				$ext_content = '';
-				eval ('$ext_class = new '.$extension['class_name'].'($this);'); // extension_klasse aufrufen und $this übergeben (db, template, session usw)
+				eval ('$ext_class = new '.$extension['class_name'].'(&$this);'); // extension_klasse aufrufen und $this übergeben (db, template, session usw)
 				eval ('$ext_content = $ext_class->'.$extension['show_func'].'('.$page_id.');');
 				$this->template->add_extension($extension['position'],$extension['title'],$ext_content);
 		}
@@ -63,7 +66,7 @@ class kernel {
 		$a_modules = $this->database->get_rows();
 		$modules = array();
 		foreach ($a_modules as $module) {
-			include ('modules/'.$module['class_name'].'/'.$module['class_name'].'.php');
+			include ($this->path.'/modules/'.$module['class_name'].'/'.$module['class_name'].'.php');
 			$mod_content = '';
 			eval ('$this->modules["'. $module['class_name'] .'"] = new '.$module['class_name'].'($this);'); // modul_klasse aufrufen und $this übergeben (db, template, session usw)
 			eval ('$mod_content = $this->modules["'. $module['class_name'] .'"]->'.$module['show_func'].'('.$page_id.');');

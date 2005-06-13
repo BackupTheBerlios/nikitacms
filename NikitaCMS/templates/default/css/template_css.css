@@ -555,6 +555,7 @@ table.pollstableborder td {
 	border-bottom: 1px solid #CCCCCC;
 	padding-top: 5px;
 	clear: both;
+	text-align: justify;
 }
 .title {
 	font-size: 20px;

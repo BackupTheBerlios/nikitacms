@@ -23,20 +23,31 @@ if(!defined('_SECURE_ACCESS')) {
 class admin_core {
 	var $mysql = '';
 	var $template = '';
-	function admin_core($mysql, $template) {
+	var $kernel = '';
+	function admin_core($mysql, $template, $kernel) {
 		$this->mysql = &$mysql;	
 		$this->template = &$template;
+		$this->kernel = $kernel;
 	}
 	function check_login() {
 		// wichtige funktionen :D
-		if(true) {
-			$this->template->addContent(HTML::adminLoginForm());	
-		} else {
-			
-		}	
+//		if($this->kernel->loginbox->validUser($_POST['nick'], $_POST['passwort'])) {
+//			$this->template->addContent(HTML::adminLoginForm());	
+//		} else {
+//			
+//		}	
 	}	
-	function renderPage() {
-		$this->template->runTemplate('default');
+	function renderPage() {			
+			$a_queries = $this->mysql->_get_queries();
+			$this->template->add_debug(count($a_queries) . 'Queries ausgeführt.<br />');	
+			foreach ($a_queries as $k) {
+				$this->template->add_debug($k . '<br />');	
+			}
+			$a_debug = $this->mysql->_get_debug();
+			foreach ($a_debug as $k) {
+				$this->template->add_debug($k . '<br />');	
+			}
+		$this->template->runTemplate('default');	
 	}
 }
 ?>

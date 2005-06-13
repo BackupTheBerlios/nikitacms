@@ -25,13 +25,23 @@ class mysql {
 	var $l_id;
 	var $q_id;
 	var $queries = array();
+	var $debug = array();
 	function mysql($host, $db, $user, $pass) {
 		$this->l_id = mysql_connect($host, $user, $pass);
-		mysql_select_db($db, $this->l_id);
+		if(mysql_select_db($db, $this->l_id)) {
+			$this->debug[] = 'Mysql Datenbank ausgewählt.';	
+		} else {
+			$this->debug[] = 'FEHLER: Mysql Datenbank NICHT ausgewählt.';
+		}
 	}
 	
 	function query($str) {
 		$this->q_id = mysql_query($str, $this->l_id);
+		if($this->q_id) {
+			$this->debug[] = 'Query "'. $str .'" erfolgreich ausgeführt.';	
+		} else {
+			$this->debug[] = 'FEHLER: Query "'. $str .'" NICHT erfolgreich ausgeführt.';
+		}
 		$this->queries[$this->q_id] = $str;
 		return $this->q_id;
 	}
@@ -52,6 +62,9 @@ class mysql {
 		return $ret;
 	}
 	
+	function _get_debug() {
+		return $this->debug;	
+	}
 	function _get_queries() {
 		return $this->queries;	
 	}

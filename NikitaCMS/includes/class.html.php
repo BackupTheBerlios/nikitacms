@@ -51,11 +51,6 @@ class HTML {
 		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 		return '<script language="JavaScript">alert("'. $text .'"); window.location.href=\'index.php\';</script>';	
 	}
-	
-	function adminLoginForm() {
-		return HTML::div('admin_login_wrapper',HTML::div('admin_login_title',_ADMIN_LOGIN) . HTML::div('admin_login',HTML::startForm('admin_login') . HTML::textField('Nick') . HTML::pwField('Passwort') . HTML::submitButton('Login') . HTML::endForm())); 	
-	}
-	
 } 
 
 ?>

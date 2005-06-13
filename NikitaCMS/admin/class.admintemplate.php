@@ -24,6 +24,7 @@ class admintemplate {
 	var $content = '';
 	var $aMenu = array();
 	var $site_path = _PATH;
+	var $debug = '';
 	function addContent($content) {
 		$this->content .= $content;	
 	}
@@ -43,9 +44,19 @@ class admintemplate {
 		echo $this->content; 
 	}
 	function runTemplate($template_name) {
+		
 		include('templates/'. $template_name .'/index.php');		
 	}	
 	
+	function showLoginform() {
+		echo HTML::div('admin_login_wrapper',HTML::div('admin_login_title',_ADMIN_LOGIN) . HTML::div('admin_login',HTML::startForm('admin_login') . HTML::textField('Nick') . HTML::pwField('Passwort') . HTML::submitButton('Login') . HTML::endForm()));	
+	}
+	function showDebug() {
+		echo $this->debug;	
+	}
+		function add_debug($text) {
+		$this->debug .= $text;	
+	}
 }
  
 

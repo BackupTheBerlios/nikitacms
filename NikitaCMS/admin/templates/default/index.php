@@ -15,5 +15,6 @@ $this->showAdminMenu();
 $this->showContent();
 ?>
 </div>
+<div style="text-align: center; border: 1px solid #CCCCCC;"><b>Debug</b>: <br /><?php $this->showDebug(); ?>
 </body>
 </html>
