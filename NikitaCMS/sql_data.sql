@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost
--- Erstellungszeit: 03. Juni 2005 um 15:34
+-- Erstellungszeit: 21. Juni 2005 um 17:32
 -- Server Version: 4.1.11
 -- PHP-Version: 4.3.11
 -- 
@@ -24,13 +24,14 @@ CREATE TABLE `nikita_extensions` (
   `position` varchar(100) collate latin1_general_ci NOT NULL default '',
   `title` varchar(100) collate latin1_general_ci NOT NULL default '',
   PRIMARY KEY  (`module_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4 ;
 
 -- 
 -- Daten für Tabelle `nikita_extensions`
 -- 
 
-INSERT INTO `nikita_extensions` VALUES (2, -1, 'show', 'loginbox', 'left', 'Login-Box');
+INSERT INTO `nikita_extensions` VALUES (2, -1, 'show', 'loginbox', 'top', 'Login-Box');
+INSERT INTO `nikita_extensions` VALUES (3, -1, 'show', 'navigation', 'left', 'Navigation');
 
 -- --------------------------------------------------------
 
@@ -43,13 +44,14 @@ CREATE TABLE `nikita_mod_content` (
   `page_id` int(11) NOT NULL default '0',
   `text` text collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`content_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4 ;
 
 -- 
 -- Daten für Tabelle `nikita_mod_content`
 -- 
 
-INSERT INTO `nikita_mod_content` VALUES (2, 2, 'HAllop !!11eins');
+INSERT INTO `nikita_mod_content` VALUES (2, 1, 'Willkommen!\r\n\r\nHier entsteht das nikitaCMS !111eins');
+INSERT INTO `nikita_mod_content` VALUES (3, 2, 'Das hier sind die News !');
 
 -- --------------------------------------------------------
 
@@ -108,8 +110,29 @@ CREATE TABLE `nikita_modules` (
 -- Daten für Tabelle `nikita_modules`
 -- 
 
-INSERT INTO `nikita_modules` VALUES (1, 1, 'show', 'content');
-INSERT INTO `nikita_modules` VALUES (3, 1, 'show', 'news');
+INSERT INTO `nikita_modules` VALUES (1, -1, 'show', 'content');
+INSERT INTO `nikita_modules` VALUES (3, 2, 'show', 'news');
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `nikita_navigation`
+-- 
+
+CREATE TABLE `nikita_navigation` (
+  `navigation_id` int(10) unsigned NOT NULL auto_increment,
+  `title` varchar(100) collate latin1_general_ci NOT NULL default '',
+  `allowed` int(11) NOT NULL default '0',
+  `order_nr` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`navigation_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
+
+-- 
+-- Daten für Tabelle `nikita_navigation`
+-- 
+
+INSERT INTO `nikita_navigation` VALUES (1, 'Home', 1, 0);
+INSERT INTO `nikita_navigation` VALUES (2, 'News', 1, 0);
 
 -- --------------------------------------------------------
 

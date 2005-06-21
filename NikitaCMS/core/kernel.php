@@ -47,17 +47,21 @@ class kernel {
 		}
 		return $a_ret;
 	}
-	
+
 	function load_extensions($page_id) {
 		$this->database->query('SELECT * FROM '._PREF.'extensions WHERE page_id = '. $page_id .' OR page_id=-1;');
 		
 		$a_extensions = $this->database->get_rows();
 		foreach ($a_extensions as $extension) {
-				include ($this->path.'/extensions/'.$extension['class_name'].'/'.$extension['class_name'].'.php');
-				$ext_content = '';
+			$ext_content = '';
+			if(!class_exists($extension['class_name'])) {
+				include ($this->path.'extensions/'.$extension['class_name'].'/'.$extension['class_name'].'.php');
 				eval ('$ext_class = new '.$extension['class_name'].'(&$this);'); // extension_klasse aufrufen und $this übergeben (db, template, session usw)
 				eval ('$ext_content = $ext_class->'.$extension['show_func'].'('.$page_id.');');
-				$this->template->add_extension($extension['position'],$extension['title'],$ext_content);
+			} else {
+				eval ('$ext_content = $ext_class->'.$extension['show_func'].'('.$page_id.');');
+			}
+			$this->template->add_extension($extension['position'],$extension['title'],$ext_content);		
 		}
 	}
 	
@@ -66,7 +70,7 @@ class kernel {
 		$a_modules = $this->database->get_rows();
 		$modules = array();
 		foreach ($a_modules as $module) {
-			include ($this->path.'/modules/'.$module['class_name'].'/'.$module['class_name'].'.php');
+			include ($this->path.'modules/'.$module['class_name'].'/'.$module['class_name'].'.php');
 			$mod_content = '';
 			eval ('$this->modules["'. $module['class_name'] .'"] = new '.$module['class_name'].'($this);'); // modul_klasse aufrufen und $this übergeben (db, template, session usw)
 			eval ('$mod_content = $this->modules["'. $module['class_name'] .'"]->'.$module['show_func'].'('.$page_id.');');

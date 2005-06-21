@@ -22,5 +22,5 @@ define('_LOGGEDIN','Sie sind jetzt eingeloggt!');
 define('_LOGGEDOUT','Sie wurden erfolgreich ausgeloggt!');
 define('_LOGINBOX_NOT_LOGGEDIN','Sie sind nicht eingeloggt.');
 define('_LOGINBOX_WRONG_LOGIN', 'Falscher Benutzername oder falsches Passwort!');
-define('_LOGINBOX_GREETING', 'Willkommen, %name% !<br>Dein letzter Besuch war am %datum% um %zeit%.');
+define('_LOGINBOX_GREETING', 'Willkommen, %name% !<br/> Dein letzter Besuch war am %datum% um %zeit%.');
 ?>

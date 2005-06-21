@@ -36,14 +36,12 @@ require_once('../includes/class.bbcode_define.php');
  * 
  */
  
-$mysql = new mysql($aMainconfig['db_host'],$aMainconfig['db_database'],$aMainconfig['db_user'],$aMainconfig['db_password']);
+$mysql = new mysql($aMainConfig['db_host'],$aMainConfig['db_database'],$aMainConfig['db_user'],$aMainConfig['db_password']);
 
 $template = new admintemplate;
 
 $kernel = new kernel(&$mysql, &$template, '../');
-echo 'bla';
 $kernel->load_modules(1);
-echo 'bla';
 $kernel->load_extensions(1);
 $admin = new admin_core($mysql, $template, &$kernel);
 

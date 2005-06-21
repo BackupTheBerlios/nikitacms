@@ -25,7 +25,8 @@ class admintemplate {
 	var $aMenu = array();
 	var $site_path = _PATH;
 	var $debug = '';
-	function addContent($content) {
+	var $i = 0;
+	function add_module($content) {
 		$this->content .= $content;	
 	}
 
@@ -56,6 +57,12 @@ class admintemplate {
 	}
 		function add_debug($text) {
 		$this->debug .= $text;	
+	}
+	function add_extension($ext_position, $ext_title, $ext_content, $ext_style_class = '') {
+	$this->a_extensions[$ext_position][$this->i]['title'] = $ext_title;
+	$this->a_extensions[$ext_position][$this->i]['content'] = $ext_content;
+	$this->a_extensions[$ext_position][$this->i]['style_class'] = $ext_style_class;
+	++$this->i;
 	}
 }
  

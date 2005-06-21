@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <?php 
@@ -45,14 +45,7 @@ if ( $this->countExtensions( 'right' ) and ( empty( $_REQUEST['task'] ) || $_REQ
 			<div id="pathway">
 			
 			</div>
-			<div id="buttons">
-			<?php $this->showExtensions ( 'user3'); ?>
-			</div>
 		</div>
-		<div id="search">
-		<?php $this->showExtensions ( 'user4' ); ?>
-		</div>
-		<div class="clr"></div>
 		<div id="header_area">
 			<div id="header">
 			<img src="<?php echo $this->site_path;?>/templates/default/images/title_back.png" width="500" height="100" alt="SolarFlare"/>

@@ -128,7 +128,7 @@ class loginbox {
 		return $content;
 	
 	}
-	function validCookieUser() {
+	function validCookieAdminLogin() {
 	if(!empty($_COOKIE['adm_username'])) {
 			// login daten des cookies testen
 			$this->h_kernel->database->query('SELECT * FROM '._PREF.'users 
@@ -148,7 +148,7 @@ class loginbox {
 			return -1;
 		}	
 	}
-	function validUser($nick, $password) {
+	function validAdminLogin($nick, $password) {
 		$this->h_kernel->database->query(
 				"SELECT * " . 
 				"FROM "._PREF."users " .

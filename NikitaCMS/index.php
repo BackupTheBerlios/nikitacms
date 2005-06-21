@@ -40,7 +40,7 @@ $mysql = new mysql(	$aMainConfig['db_host'],
 					$aMainConfig['db_password']);
 					
 // Kernel laden, mysql und template handler übergeben
-$kernel = new kernel(&$mysql, &$template);
+$kernel = new kernel(&$mysql, &$template,'');
 
 
 // Module und Extensions laden (für die aktuelle Seite)

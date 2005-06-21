@@ -507,7 +507,7 @@ table.moduletable {
 
 .ext_content {
 	font-size: 11px;
-	padding: 0px;
+	padding: 2px;
 	margin: 0px;
 	font-weight: normal;
 }
@@ -652,4 +652,13 @@ a.sublevel:hover {
 .edit_text {
 	padding-top: 10px;
 	font-size: 10px;
+}
+
+.menu_item {
+	background-color: #ffffff;
+	border: 1px solid #eee;
+	margin: 2px;
+	padding: 5px;
+	vertical-align: center;
+	text-align: left;
 }

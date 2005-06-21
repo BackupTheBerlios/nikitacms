@@ -42,7 +42,17 @@ class HTML {
 	function endForm() {
 		return '</form>';	
 	}
+	function a($link, $name = '', $target = '') {
+		$t = '';
+		if($target != '') {
+			$t = 'target="'.$target.'"';	
+		}
+		return '<a href="'.$link.'" '. $t .' >'. ($name == '' ? $link : $name) .'</a>';
+	}
 	
+	function span($class, $content) {
+		return '<span class="'. $class .'">' . "\n" . $content . "\n" . '</span>';
+	}
 	function div($class, $content) {
 		return '<div class="'. $class .'">' . "\n" . $content . "\n" . '</div>';	
 	}

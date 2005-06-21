@@ -75,14 +75,13 @@ require_once('stringparser_bbcode.class.php');
 	        return true;
 	    }
 	    $content = wordwrap($content, 80, "\n");
-	    return '<br/><b>Code:</b><div class="code"><pre>'.htmlspecialchars($content).'</pre></div>';  
+	    return '<br/><b>Code:</b><div class="code"><pre>'.$content.'</pre></div>';  
 	}
 
 	function do_bbcode_php ($action, $attributes, $content, $params, &$node_object) {
 		if ($action == 'validate') {
 	        return true;
 	    }
-	    //$new_cont = htmlspecialchars($content);
 	    $new_cont = $content;
 	    ob_start();
 	    
@@ -101,7 +100,7 @@ require_once('stringparser_bbcode.class.php');
 	    if(isset ($attributes['name'])) {
 	    	return '<br/>Zitat von '.$attributes['name'].':<div class="quote">'.$content.'</div>';  
 	    }
-	    return '<br/>Zitat: <div class="quote">'.$content.'</div>';  
+	    return '<br/>Zitat: <div class="quote">'.html_entity_decode($content).'</div>';  
 	}
 	function do_bbcode_url ($action, $attributes, $content, $params, $node_object) {
 	    if ($action == 'validate') {
@@ -117,7 +116,7 @@ require_once('stringparser_bbcode.class.php');
 	    if ($action == 'validate') {
 	        return true;
 	    }
-	    return '<img src="'.htmlspecialchars($content).'" alt="">';
+	    return '<img src="'.htmlspecialchars($content).'" alt="" />';
 	}
 	
 	function parse($text) {
@@ -125,7 +124,7 @@ require_once('stringparser_bbcode.class.php');
 	}
 	
 	function safe_text($text) {
-		return trim(nl2br(htmlspecialchars($text)));
+		return trim(nl2br(htmlentities($text)));
 	}
 }
 ?>
