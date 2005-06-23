@@ -75,7 +75,7 @@ require_once('stringparser_bbcode.class.php');
 	        return true;
 	    }
 	    $content = wordwrap($content, 80, "\n");
-	    return '<br/><b>Code:</b><div class="code"><pre>'.$content.'</pre></div>';  
+	    return '<br/><b>Code:</b><div class="code">'.nl2br($content).'</div>';  
 	}
 
 	function do_bbcode_php ($action, $attributes, $content, $params, &$node_object) {

@@ -78,13 +78,13 @@ class kernel {
 		}
 	}
 	
-	function renderPage() {			
+	function renderPage($template = 'default') {			
 			$a_queries = $this->database->_get_queries();
 			$this->template->add_debug(count($a_queries) . 'Queries ausgeführt.<br />');	
 			foreach ($a_queries as $k) {
 				$this->template->add_debug($k . '<br />');	
 			}
-		$this->template->runTemplate('default');	
+		$this->template->runTemplate($template);	
 	}
 	
 

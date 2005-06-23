@@ -48,7 +48,7 @@ $kernel->load_modules(empty($_GET['id']) ? 1 : $_GET['id']);
 $kernel->load_extensions(empty($_GET['id']) ? 1 : $_GET['id']);
 
 // Page ausgeben
-$kernel->renderPage();
+$kernel->renderPage('stoned');
 
 // und dieser Teil kommt ganz am ende deiner Seite
 $time_end = explode(" ",microtime());

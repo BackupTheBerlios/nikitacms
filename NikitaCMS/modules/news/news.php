@@ -26,7 +26,7 @@ class news_output {
 		$ret = HTML::div('title', $this->hK->bbcode->safe_text($title));
 		$ret .= HTML::div('author', str_replace('%name%', $author, _CREATED_BY));
 		$ret .= HTML::div('createdate',str_replace('%datum%', strftime('%d.%m.%Y',$date), _CREATED_ON));
-		$ret .= HTML::div('content', $this->hK->bbcode->parse($text));
+		$ret .= HTML::div('news_content', $this->hK->bbcode->parse($text));
 		return HTML::div('news_container', $ret);
 	}
 	function show_nav($act_page, $pages) {
