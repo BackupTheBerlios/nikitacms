@@ -31,16 +31,16 @@ class mysql {
 		if(mysql_select_db($db, $this->l_id)) {
 			$this->debug[] = 'Mysql Datenbank ausgewählt.';	
 		} else {
-			$this->debug[] = 'FEHLER: Mysql Datenbank NICHT ausgewählt.';
+			$this->debug[] = '<font color="red">FEHLER: Mysql Datenbank NICHT ausgewählt.</font>';
 		}
 	}
 	
 	function query($str) {
 		$this->q_id = mysql_query($str, $this->l_id);
 		if($this->q_id) {
-			$this->debug[] = 'Query "'. $str .'" erfolgreich ausgeführt.';	
+			$this->debug[] = '<font color="green">Query "'. $str .'" erfolgreich ausgeführt.</b>';	
 		} else {
-			$this->debug[] = 'FEHLER: Query "'. $str .'" NICHT erfolgreich ausgeführt.';
+			$this->debug[] = '<font color="red">FEHLER: Query "'. $str .'" <b>NICHT</b> erfolgreich ausgeführt.</font>';
 		}
 		$this->queries[$this->q_id] = $str;
 		return $this->q_id;

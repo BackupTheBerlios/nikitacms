@@ -18,6 +18,6 @@
 if(!defined('_SECURE_ACCESS')) {
 	die('Zugriff verweigert.');	
 }
-
+define('_COOKIE_EXPIRE',time()+60*60*24*30);
 define('_ISO', 'ISO-8859-1');
 ?>

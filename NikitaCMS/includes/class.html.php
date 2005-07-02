@@ -24,7 +24,9 @@ class HTML {
 	function textField($name, $value = '', $size = 10) {
 		return $name. '<br/> <input size="'. $size . '" class="inputbox" type="text" name="'. strtolower($name) .'" value="'. $value .'"/><br/>';	
 	}
-
+	function textArea($name, $value='') {
+		return $name . '<br/><textarea class="textarea" name="'.strtolower($name).'">' . $value . '</textarea>';	
+	}
 	function hiddenField($name, $value) {
 		return '<input type="hidden" name="'. strtolower($name) .'" value="'. $value .'"/>';	
 	}

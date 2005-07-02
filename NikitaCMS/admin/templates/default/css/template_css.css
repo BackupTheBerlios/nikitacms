@@ -3,14 +3,83 @@
 	font-size: 11px;
 }
 
-.menu {
-
-
+.textarea {
+	width: 500px;
+	height: 300px;
+	margin: 5px;
 }
 
-.content {
+.inputbox {
+	width: 350px;
+	margin: 5px;
+}
+h1 {
+	font-size: 24px;
+	border-bottom: 1px dashed #aaaaaa;
+	margin-bottom: 5px;
+}
+.list {
+	width: 100%;
+	
+}
+h2 {
+	font-size: 16px;
+	border-bottom: 1px dashed #aaaaaa;
+	margin-bottom: 5px;
+}
+
+h3 {
+	font-size: 14px;
+	border-bottom: 1px dashed #aaaaaa;
+	margin-bottom: 5px;
+}
+
+#menu {
+	float: left;
+	border: 1px solid #cccccc;
+	margin: 5px;
+width: 20%;
+}
+
+.menu_entry {
+	display: block;
+	margin: -1px;
+	padding: 2px;
+	border: 1px solid #cfcfcf;
+	text-decoration: none;
+	color: #000000;
+	font-family: Verdana, Arial;
+	font-size: 12px;
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+.menu_entry:hover {
+	background-color: #3F8DC0;
+	border: 1px solid #1F6Da0;
+	color: #FFFFFF;
+}
+
+
+.menu_head {
+	display: block;
+	margin: 5px;
+	padding-top: 5px;
+	text-decoration: none;
+	color: #000000;
+	font-family: Tahoma;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+#content {
 	border: 1px solid #cccccc;
 	background-color: #efefef;
+	padding: 5px;
+	margin: 5px;
+	float: left;
+	width: 75%;
 }
 
 .admin_login {

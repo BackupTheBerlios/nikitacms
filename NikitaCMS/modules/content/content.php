@@ -15,12 +15,44 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
- 
+
+class admin_content {
+	var $admHnd;
+	function admin_content($admin_handler) {
+		$this->admHnd = $admin_handler;
+	}	
+	
+	function handleAdmin() {
+		$this->admHnd->template->headLine('Content-Modul');
+		switch($_GET['do']) {
+			case 'edit':
+			break;
+			
+			default:
+			$this->admHnd->template->descr('Das Content-Modul verwaltet den Inhalt auf beliebigen Seiten. So kann man z.B. für jede Seite einen Teaser erstellen oder einen Statischen Text zur Seiet hinzufügen. Die folgendende Liste beinhaltet alle vorhandenen Datensätze.');
+			$this->admHnd->mysql->query('SELECT * FROM '._PREF.'mod_content WHERE 1;');
+			$data = $this->admHnd->mysql->get_rows();
+			$this->admHnd->template->startList('Liste aller Content-Datensätze',1,array('Seiten-ID','Inhalt', 'Aktion'));
+			foreach($data as $entry) {
+				$this->admHnd->template->listItem(array($entry['page_id'],$entry['text'], '<a href="index.php?action=mod&id='.$_GET['id'].'&do=edit&data_id='.$entry['content_id'].'"<img border="0" src="/nikitaCMS/admin/templates/default/images/b_edit.png" alt="bearbeiten"/></a>&nbsp;<img src="/nikitaCMS/admin/templates/default/images/b_drop.png" alt="löschen"/>'));
+			}
+			$this->admHnd->template->endList();
+			}
+
+		
+	}
+	function edit() {
+		
+	}
+	function saveedit() {
+		
+	}
+}
  
 class output_content {
 	function show($row) {
 		// hier bbcode etc...
-		return $row['text'];
+		return nl2br($this->h_kernel->bbcode->parse($row['text']));
 	}
 }
 

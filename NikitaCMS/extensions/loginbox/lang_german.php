@@ -16,7 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
  
-define('_COOKIE_EXPIRE',time()+60*60*24*30);
+
 define('_LOGINBOX_WELCOME','Willkommen, Gast!');
 define('_LOGGEDIN','Sie sind jetzt eingeloggt!');
 define('_LOGGEDOUT','Sie wurden erfolgreich ausgeloggt!');

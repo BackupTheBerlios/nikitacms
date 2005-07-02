@@ -17,4 +17,7 @@
  */
  
 define('_ADMIN_LOGIN','Willkommen im Admin-Portal! Bitte loggen Sie sich ein, um fortzufahren.');
+define('_ADMIN_GREETING', 'Sie sind erfolgreich eingeloggt. Hier könenn Sie den gesamten Inhalt Ihrer Seite administrieren, sowie weitere Module für Ihren Gebrauch installieren.');
+define('_WRONG_LINK','Der Link wurde falsch übertragen.');
+define('_ERROR_OCCURED','Es ist ein kritischer Fehler aufgetreten: ');
 ?>
